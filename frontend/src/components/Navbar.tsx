@@ -27,7 +27,7 @@ export default function Navbar() {
         <nav
             className={`
                 fixed top-0 left-0 w-full z-50
-                transition-all duration-300
+                transition-all duration-300 px-15
                 ${scrolled ? "opacity-0" : "bg-transparent py-6"}
                 ${isOpen ? "bg-gray-800 py-4" : "py-6"}
             `}
