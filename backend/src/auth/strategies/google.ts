@@ -1,5 +1,4 @@
-import 'dotenv/config'; 
-
+import 'dotenv/config'; // having issues with  env not loading so reloading here  
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { findUserByEmail, createUser, retrieveUserById } from '../../query';

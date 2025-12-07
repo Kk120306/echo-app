@@ -27,7 +27,7 @@ export default function Navbar() {
         <nav
             className={`
                 fixed top-0 left-0 w-full z-50
-                transition-all duration-300 px-15
+                transition-all duration-300 md:px-15 
                 ${scrolled ? "opacity-0" : "bg-transparent py-6"}
                 ${isOpen ? "bg-gray-800 py-4" : "py-6"}
             `}
@@ -50,7 +50,11 @@ export default function Navbar() {
                             {link.name}
                         </Link>
                     ))}
-                    <Button className="bg-gray-700 text-white">Get Started</Button>
+                    <Link href="/sign-up">
+                        <Button className="bg-gray-700 text-white">
+                            Get Started
+                        </Button>
+                    </Link>
                 </div>
 
                 <button
@@ -80,9 +84,12 @@ export default function Navbar() {
                             </Link>
                         </li>
                     ))}
-                    <Button className="w-full bg-gray-700 text-white mt-2">
+                    <Link
+                        href="/sign-up"
+                        className="w-full bg-gray-700 text-white mt-2 inline-flex items-center justify-center rounded-md text-sm font-medium"
+                    >
                         Get Started
-                    </Button>
+                    </Link>
                 </ul>
             </div>
         </nav>

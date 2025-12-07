@@ -3,7 +3,7 @@ import { PLANS } from "@/constants/pages";
 
 const Pricing = () => {
     return (
-        <section id="pricing" className="py-24 bg-black relative overflow-hidden">
+        <section id="pricing" className="py-24 bg-black relative overflow-hidden px-2">
 
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full blur-3xl opacity-20" />
 

@@ -5,7 +5,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-black/30" />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black" />
 
-            <div className="absolute bottom-0 left-0 z-10 px-23 pb-9">
+            <div className="absolute bottom-0 left-0 z-10 md:px-23 px-5 pb-9">
 
                 <h1 className="text-white md:text-6xl text-4xl font-bold mb-6 leading-tight">
                     Discover.<br />
