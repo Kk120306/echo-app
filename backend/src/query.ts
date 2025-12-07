@@ -1,4 +1,4 @@
-import { prisma } from './config/db';
+import prisma from './config/db';
 
 async function findUserByEmail(email: string) {
     return await prisma.user.findUnique({
@@ -28,6 +28,6 @@ async function retrieveUserById(id: string) {
 }
 
 export {
-    findUserByEmail
-    , createUser
-}
+    findUserByEmail,
+    createUser, retrieveUserById
+};

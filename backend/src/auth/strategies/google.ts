@@ -1,13 +1,14 @@
+import 'dotenv/config'; 
+
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-import { prisma } from '../../config/db';
 import { findUserByEmail, createUser, retrieveUserById } from '../../query';
 
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID!,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    callbackURL: '/oauth2/redirect/google',
-    scope: ['profile']
+    callbackURL: 'http://localhost:4000/auth/oauth2/redirect/google',
+    scope: ['profile', 'email']
 }, async (accessToken, refreshToken, profile, done) => {
     try {
         const email = profile.emails?.[0]?.value;
@@ -26,7 +27,7 @@ passport.use(new GoogleStrategy({
         }
         return done(null, user);
     } catch (e) {
-        return done(e);
+        return done(e as Error);
     }
 }));
 
@@ -36,9 +37,9 @@ passport.serializeUser((user: any, done) => {
 
 passport.deserializeUser(async (id: string, done) => {
     try {
-        const user = retrieveUserById(id);
+        const user = await retrieveUserById(id);
         done(null, user);
     } catch (e) {
-        done(e);
+        done(e as Error);
     }
 });
